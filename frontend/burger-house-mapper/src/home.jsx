@@ -1,11 +1,11 @@
 import image1 from './assets/cover1.jpg';
-
+import About from './about';
 
 function Home() {
  
 
   return (
-    <>
+    <div>
      
      <div className='flex flex-col md:flex-row items-center justify-center bg-gray-100 pt-5'>
      <div className=" text-2xl text-center p-10 font-light">
@@ -18,7 +18,8 @@ function Home() {
           <img src={image1} alt="Haileresort" className="w-full h-auto object-cover" />
         </div>
      </div>
-    </>
+     <About />
+    </div>
   )
 }
 
