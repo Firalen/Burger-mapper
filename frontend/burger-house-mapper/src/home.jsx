@@ -1,6 +1,6 @@
 import image1 from './assets/cover1.jpg';
 import About from './about';
-
+import PlacesList from './places';
 function Home() {
  
 
@@ -19,6 +19,7 @@ function Home() {
         </div>
      </div>
      <About />
+     <PlacesList />
     </div>
   )
 }
