@@ -34,21 +34,21 @@ const places = [
     name: 'Haile Resort',
     description: 'A beautiful park with stunning sunset views.',
     photo: image3,
-    location: 'https://www.google.com/maps?q=Sunset+Park'
+    location: 'https://maps.app.goo.gl/SrWoT9b3Zt4Ne2Rv5'
   },
   {
     id: 5,
     name: 'kaldis Cafe',
-    description: 'A cozy cafe with a mountain view.',
+    description: 'A cozy cafe with a luxury view.',
     photo: image4,
-    location: 'https://www.google.com/maps?q=Mountain+Cafe'
+    location: 'https://maps.app.goo.gl/BNQgiWjFpZiGHQzp9'
   },
   {
     id: 6,
     name: 'Olyad Cinema',
-    description: 'A restaurant with a serene lake view.',
+    description: 'A place chill with .',
     photo: image5,
-    location: 'https://www.google.com/maps?q=Lakeview+Restaurant'
+    location: 'https://maps.app.goo.gl/QUd2wdGpJy6HS3Da9'
   }
 ];
 
