@@ -9,7 +9,7 @@ function Home() {
     <div>
      
      <div className='flex flex-col md:flex-row items-center justify-center bg-rose-50 pt-5'>
-     <div className=" text-2xl text-center p-10 font-light">
+     <div className=" text-2xl text-center p-10 ">
      <h1 className="text-black font-italic text-3xl text-center p-10">ADAMA DATE PLACES</h1>
       <p>"Dating Place" is your personal guide to the most romantic spots around town.</p>
       <p>  Whether you're planning your first date or a special anniversary, find cozy cafés,</p>

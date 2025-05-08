@@ -2,6 +2,11 @@ import React from 'react';
 import image from './assets/la.jpg';
 import image1 from './assets/gadaa.jpg';
 import image2 from './assets/haileresort.jpg';
+import image3 from './assets/haile2.jpg';
+import image4 from './assets/cover4.webp';
+import image5 from './assets/cover5.jpeg';
+
+
 const places = [
   {
     id: 1,
@@ -22,6 +27,27 @@ const places = [
     name: 'Lakeview Restaurant',
     description: 'A restaurant with a serene lake view.',
     photo: image2,
+    location: 'https://www.google.com/maps?q=Lakeview+Restaurant'
+  },
+  {
+    id: 4,
+    name: 'Haile Resort',
+    description: 'A beautiful park with stunning sunset views.',
+    photo: image3,
+    location: 'https://www.google.com/maps?q=Sunset+Park'
+  },
+  {
+    id: 5,
+    name: 'kaldis Cafe',
+    description: 'A cozy cafe with a mountain view.',
+    photo: image4,
+    location: 'https://www.google.com/maps?q=Mountain+Cafe'
+  },
+  {
+    id: 6,
+    name: 'Olyad Cinema',
+    description: 'A restaurant with a serene lake view.',
+    photo: image5,
     location: 'https://www.google.com/maps?q=Lakeview+Restaurant'
   }
 ];
