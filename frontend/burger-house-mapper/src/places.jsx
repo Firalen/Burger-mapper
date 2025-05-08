@@ -1,25 +1,27 @@
 import React from 'react';
-
+import image from './assets/la.jpg';
+import image1 from './assets/gadaa.jpg';
+import image2 from './assets/haileresort.jpg';
 const places = [
   {
     id: 1,
     name: 'Sunset Park',
     description: 'A beautiful park with stunning sunset views.',
-    photo: 'https://via.placeholder.com/300',
+    photo: image,
     location: 'https://www.google.com/maps?q=Sunset+Park'
   },
   {
     id: 2,
     name: 'Mountain Cafe',
     description: 'A cozy cafe with a mountain view.',
-    photo: 'https://via.placeholder.com/300',
+    photo: image1,
     location: 'https://www.google.com/maps?q=Mountain+Cafe'
   },
   {
     id: 3,
     name: 'Lakeview Restaurant',
     description: 'A restaurant with a serene lake view.',
-    photo: 'https://via.placeholder.com/300',
+    photo: image2,
     location: 'https://www.google.com/maps?q=Lakeview+Restaurant'
   }
 ];
