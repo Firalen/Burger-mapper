@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 export default function ReviewsSection() {
   const [reviews, setReviews] = useState([
-    { id: 1, name: 'John Doe', rating: 5, comment: 'Amazing place! Highly recommend.' },
-    { id: 2, name: 'Jane Smith', rating: 4, comment: 'Great atmosphere and friendly staff.' }
+    { id: 1, name: 'John Doe', rating: 5, comment: 'Amazing place! Highly recommend.', approved: true },
+    { id: 2, name: 'Jane Smith', rating: 4, comment: 'Great atmosphere and friendly staff.', approved: true }
   ]);
 
   const [newReview, setNewReview] = useState({ name: '', rating: '', comment: '' });
@@ -16,11 +16,13 @@ export default function ReviewsSection() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (newReview.name && newReview.rating && newReview.comment) {
+      // Add the new review with `approved: false`
       setReviews((prev) => [
         ...prev,
-        { id: prev.length + 1, ...newReview }
+        { id: prev.length + 1, ...newReview, approved: false }
       ]);
       setNewReview({ name: '', rating: '', comment: '' });
+      alert('Your review has been submitted and is awaiting approval.');
     }
   };
 
@@ -28,15 +30,17 @@ export default function ReviewsSection() {
     <div className="bg-white shadow-lg rounded-lg p-6 mt-8">
       <h2 className="text-2xl font-bold text-rose-600 mb-4">User Reviews</h2>
 
-      {/* Display Reviews */}
+      {/* Display Approved Reviews */}
       <div className="space-y-4">
-        {reviews.map((review) => (
-          <div key={review.id} className="border-b pb-4">
-            <h3 className="text-lg font-semibold">{review.name}</h3>
-            <p className="text-sm text-gray-600">Rating: {review.rating} ⭐</p>
-            <p className="text-gray-700">{review.comment}</p>
-          </div>
-        ))}
+        {reviews
+          .filter((review) => review.approved) // Only show approved reviews
+          .map((review) => (
+            <div key={review.id} className="border-b pb-4">
+              <h3 className="text-lg font-semibold">{review.name}</h3>
+              <p className="text-sm text-gray-600">Rating: {review.rating} ⭐</p>
+              <p className="text-gray-700">{review.comment}</p>
+            </div>
+          ))}
       </div>
 
       {/* Add New Review */}
