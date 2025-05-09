@@ -1,6 +1,7 @@
 import image1 from './assets/cover1.jpg';
 import About from './about';
 import PlacesList from './places';
+import Review from './review';
 import Footer from './footer';
 function Home() {
  
@@ -21,6 +22,7 @@ function Home() {
      </div>
      <About />
      <PlacesList />
+     <Review />
      <Footer />
     </div>
   )

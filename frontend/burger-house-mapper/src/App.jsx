@@ -4,6 +4,7 @@ import About from './about'
 import Contact from './service'
 import Places from './places'
 import Nav from './nav'
+import Review from './review'
 function App() {
 
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/places" element={<Places />} />
+        <Route path ="/review" element={<Review />} />
         </Routes>
     </Router>
 
