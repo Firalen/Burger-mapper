@@ -3,14 +3,25 @@ import React, { useState } from 'react';
 export default function ReviewsSection() {
   const [reviews, setReviews] = useState([
     { id: 1, name: 'John Doe', rating: 5, comment: 'Amazing place! Highly recommend.', approved: true },
-    { id: 2, name: 'Jane Smith', rating: 4, comment: 'Great atmosphere and friendly staff.', approved: true }
+    { id: 2, name: 'Jane Smith', rating: 4, comment: 'Great atmosphere and friendly staff.', approved: true },
+    { id: 3, name: 'Emily Brown', rating: 3, comment: 'Good, but could be better.', approved: true }
   ]);
 
   const [newReview, setNewReview] = useState({ name: '', rating: '', comment: '' });
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filterRating, setFilterRating] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewReview((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleFilterChange = (e) => {
+    setFilterRating(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -26,21 +37,54 @@ export default function ReviewsSection() {
     }
   };
 
+  const filteredReviews = reviews
+    .filter((review) => review.approved) // Only show approved reviews
+    .filter((review) =>
+      review.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      review.comment.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .filter((review) => (filterRating ? review.rating === parseInt(filterRating) : true));
+
   return (
     <div className="bg-white shadow-lg rounded-lg p-6 mt-8">
       <h2 className="text-2xl font-bold text-rose-600 mb-4">User Reviews</h2>
 
-      {/* Display Approved Reviews */}
+      {/* Search and Filter */}
+      <div className="flex flex-col md:flex-row gap-4 mb-6">
+        <input
+          type="text"
+          placeholder="Search reviews..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+          className="w-full md:w-1/2 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400"
+        />
+        <select
+          value={filterRating}
+          onChange={handleFilterChange}
+          className="w-full md:w-1/4 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400"
+        >
+          <option value="">Filter by Rating</option>
+          <option value="5">5 Stars</option>
+          <option value="4">4 Stars</option>
+          <option value="3">3 Stars</option>
+          <option value="2">2 Stars</option>
+          <option value="1">1 Star</option>
+        </select>
+      </div>
+
+      {/* Display Filtered Reviews */}
       <div className="space-y-4">
-        {reviews
-          .filter((review) => review.approved) // Only show approved reviews
-          .map((review) => (
+        {filteredReviews.length > 0 ? (
+          filteredReviews.map((review) => (
             <div key={review.id} className="border-b pb-4">
               <h3 className="text-lg font-semibold">{review.name}</h3>
               <p className="text-sm text-gray-600">Rating: {review.rating} ⭐</p>
               <p className="text-gray-700">{review.comment}</p>
             </div>
-          ))}
+          ))
+        ) : (
+          <p className="text-gray-600">No reviews found.</p>
+        )}
       </div>
 
       {/* Add New Review */}
