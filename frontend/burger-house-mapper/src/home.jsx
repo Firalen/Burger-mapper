@@ -3,6 +3,8 @@ import About from './about';
 import PlacesList from './places';
 import Review from './review';
 import Footer from './footer';
+import EventsSection from './event';
+
 
 function Home() {
   return (
@@ -20,6 +22,7 @@ function Home() {
       </div>
       <About />
       <PlacesList />
+      <EventsSection />
       <Review />
       <Footer />
     </div>

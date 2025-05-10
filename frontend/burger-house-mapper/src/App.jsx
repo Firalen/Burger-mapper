@@ -5,6 +5,8 @@ import Contact from './service'
 import Places from './places'
 import Nav from './nav'
 import Review from './review'
+import EventsSection from './event'
+
 function App() {
 
   return (
@@ -18,6 +20,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/places" element={<Places />} />
         <Route path ="/review" element={<Review />} />
+        <Route path='/events' element={<EventsSection />} />
         </Routes>
     </Router>
 
