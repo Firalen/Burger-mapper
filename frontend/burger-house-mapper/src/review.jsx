@@ -88,7 +88,7 @@ export default function ReviewsSection() {
       </div>
 
       {/* Add New Review */}
-      <form onSubmit={handleSubmit} className="mt-6">
+      <form onSubmit={handleSubmit} className="mt-6 p-10">
         <h3 className="text-lg font-bold mb-2">Add Your Review</h3>
         <div className="mb-4">
           <label className="block text-gray-700 font-semibold mb-2">Name</label>
@@ -98,7 +98,7 @@ export default function ReviewsSection() {
             value={newReview.name}
             onChange={handleInputChange}
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400"
+            className="w-1/2 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400"
           />
         </div>
         <div className="mb-4">
@@ -111,7 +111,7 @@ export default function ReviewsSection() {
             min="1"
             max="5"
             required
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400"
+            className="w-1/2 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400"
           />
         </div>
         <div className="mb-4">
@@ -122,12 +122,12 @@ export default function ReviewsSection() {
             onChange={handleInputChange}
             required
             rows="4"
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400"
+            className="w-1/2 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400"
           />
         </div>
         <button
           type="submit"
-          className="w-full bg-rose-500 text-white font-semibold py-2 rounded hover:bg-rose-600 transition duration-200"
+          className="w-1/3 bg-rose-500 text-white font-semibold py-2 justify-center rounded hover:bg-rose-600 transition duration-200"
         >
           Submit Review
         </button>
