@@ -40,11 +40,7 @@ function Home() {
       {/* About Section */}
       <div className="bg-white py-16">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold text-rose-600 mb-6">About Us</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Discover the best date spots in Adama, Ethiopia. From romantic cafes to scenic parks,
-            we help you create unforgettable memories with your loved ones.
-          </p>
+            
         </div>
         <About />
       </div>
@@ -52,11 +48,7 @@ function Home() {
       {/* Places Section */}
       <div className="bg-gray-100 py-16">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold text-rose-600 mb-6">Explore Places</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Find the perfect spot for your next date. Browse through our curated list of the best
-            places in Adama.
-          </p>
+          
         </div>
         <PlacesList />
       </div>
@@ -64,11 +56,7 @@ function Home() {
       {/* Events Section */}
       <div className="bg-rose-50 py-16">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold text-rose-600 mb-6">Upcoming Events</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Don’t miss out on exciting events and promotions happening around Adama. Plan your
-            perfect outing today!
-          </p>
+         
         </div>
         <EventsSection />
       </div>
@@ -76,11 +64,7 @@ function Home() {
       {/* Reviews Section */}
       <div className="bg-white py-16">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold text-rose-600 mb-6">What People Say</h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Hear from our users about their experiences with Adama Date Places. Your feedback
-            matters!
-          </p>
+          
         </div>
         <Review />
       </div>
