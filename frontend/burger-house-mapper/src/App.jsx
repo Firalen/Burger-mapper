@@ -22,6 +22,7 @@ function App() {
         <Route path ="/review" element={<Review />} />
         <Route path='/events' element={<EventsSection />} />
         </Routes>
+       
     </Router>
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import image from './assets/la.jpg';
-import image1 from './assets/gadaa.jpg';
+import image1 from './assets/naflet5.webp';
 import image2 from './assets/haileresort.jpg';
 import image3 from './assets/haile2.jpg';
 import image4 from './assets/cover4.webp';
@@ -10,17 +10,17 @@ import image5 from './assets/cover5.jpeg';
 const places = [
   {
     id: 1,
-    name: 'Sunset Park',
+    name: 'Safari Logde',
     description: 'A beautiful park with stunning sunset views.',
     photo: image,
-    location: 'https://www.google.com/maps?q=Sunset+Park'
+    location: 'https://maps.app.goo.gl/vswMv9BZogv9uQ4s8'
   },
   {
     id: 2,
-    name: 'Mountain Cafe',
+    name: 'Naflet Hotel',
     description: 'A cozy cafe with a mountain view.',
     photo: image1,
-    location: 'https://www.google.com/maps?q=Mountain+Cafe'
+    location: 'https://maps.app.goo.gl/1uX6bhuq4vxtKUFs8'
   },
   {
     id: 3,

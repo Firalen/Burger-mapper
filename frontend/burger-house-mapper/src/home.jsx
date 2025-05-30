@@ -6,8 +6,10 @@ import Review from './review';
 import Footer from './footer';
 import EventsSection from './event';
 import { motion } from 'framer-motion';
+import {useNavigate} from 'react-router-dom'
 
 function Home() {
+  const navigate = useNavigate();
   return (
     <div>
       {/* Hero Section */}
@@ -34,6 +36,7 @@ function Home() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               className="mt-4 px-6 py-3 bg-yellow-300 text-black font-bold rounded-lg shadow-lg hover:bg-yellow-400 transition duration-300"
+               onClick={() => navigate('/places')}
             >
               Explore Now
             </motion.button>
