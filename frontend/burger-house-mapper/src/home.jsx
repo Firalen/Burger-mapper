@@ -74,14 +74,7 @@ function Home() {
         <EventsSection />
       </div>
 
-      {/* Reviews Section */}
-      <div className="bg-white py-16">
-       
-        <Review />
-      </div>
-
-      {/* Footer */}
-      <Footer />
+   
     </div>
   );
 }

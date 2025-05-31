@@ -6,6 +6,7 @@ import Places from './places'
 import Nav from './nav'
 import Review from './review'
 import EventsSection from './event'
+import Footer from './footer';
 
 function App() {
 
@@ -24,7 +25,8 @@ function App() {
         </Routes>
        
     </Router>
-
+    
+    <Footer />
 
     </div>
   )
