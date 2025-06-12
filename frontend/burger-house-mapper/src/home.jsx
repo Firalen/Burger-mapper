@@ -56,19 +56,19 @@ function Home() {
         </div>
       </div>
 
-      {/* About Section */}
+
       <div className="bg-white py-16">
        
         <About />
       </div>
 
-      {/* Places Section */}
+      
       <div className="bg-gray-100 py-16">
         
         <PlacesList />
       </div>
 
-      {/* Events Section */}
+      
       <div className="bg-rose-50 py-16">
         
         <EventsSection />
