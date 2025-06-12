@@ -30,7 +30,7 @@ function Home() {
             </p>
             <p className="text-lg mb-4">
               Whether you are planning your first date or a special anniversary, find cozy cafés,
-              scenic walks, rooftop dinners, and more – all in one place.
+              scenic walks, rooftop dinners, and more  all in one place.
             </p>
             <motion.button
               whileHover={{ scale: 1.1 }}
