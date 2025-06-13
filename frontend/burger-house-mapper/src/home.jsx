@@ -23,7 +23,7 @@ function Home() {
             transition={{ duration: 1 }}
           >
             <h1 className="text-6xl font-extrabold mb-6">
-              Welcome to <span className="text-yellow-300">Adama</span>
+              Welcome to <span className="text-yellow-300">Adama Date Places</span>
             </h1>
             <p className="text-xl mb-4">
               Your personal guide to the most romantic spots around town.
