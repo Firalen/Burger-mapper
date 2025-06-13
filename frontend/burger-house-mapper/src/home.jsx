@@ -29,7 +29,7 @@ function Home() {
               Your personal guide to the most romantic spots around town.
             </p>
             <p className="text-lg mb-4">
-              Whether you are planning your first date or a special anniversary, find cozy cafés,
+              Whether you are planning your date or a special anniversary, find cozy cafés,
               scenic walks, rooftop dinners, and more  all in one place.
             </p>
             <motion.button
