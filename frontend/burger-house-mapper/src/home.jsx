@@ -23,13 +23,13 @@ function Home() {
             transition={{ duration: 1 }}
           >
             <h1 className="text-6xl font-extrabold mb-6">
-              Welcome to <span className="text-yellow-300">Adama Date Places</span>
+              Welcome to <span className="text-yellow-300">Adama</span>
             </h1>
             <p className="text-xl mb-4">
               Your personal guide to the most romantic spots around town.
             </p>
             <p className="text-lg mb-4">
-              Whether you are planning your date or a special anniversary, find cozy cafés,
+              Whether you are planning your first date or a special anniversary, find cozy cafés,
               scenic walks, rooftop dinners, and more  all in one place.
             </p>
             <motion.button
