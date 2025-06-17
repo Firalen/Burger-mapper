@@ -1,137 +1,255 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ReviewsSection() {
   const [reviews, setReviews] = useState([
-    { id: 1, name: 'John Doe', rating: 5, comment: 'Amazing place! Highly recommend.', approved: true },
-    { id: 2, name: 'Jane Smith', rating: 4, comment: 'Great atmosphere and friendly staff.', approved: true },
-    { id: 3, name: 'Emily Brown', rating: 3, comment: 'Good, but could be better.', approved: true }
+    {
+      id: 1,
+      name: 'John Doe',
+      rating: 5,
+      comment: 'Amazing place! The atmosphere was perfect for our anniversary dinner. The staff was incredibly attentive and the food was outstanding.',
+      date: '2 days ago',
+      image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80',
+      place: 'Sunset Restaurant',
+      approved: true
+    },
+    {
+      id: 2,
+      name: 'Jane Smith',
+      rating: 4,
+      comment: 'Great atmosphere and friendly staff. The view was breathtaking, especially during sunset. Would definitely come back for another date night!',
+      date: '1 week ago',
+      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2087&q=80',
+      place: 'Mountain View Cafe',
+      approved: true
+    },
+    {
+      id: 3,
+      name: 'Emily Brown',
+      rating: 3,
+      comment: 'Good experience overall. The place was nice but a bit crowded. The food was decent but could use some improvement.',
+      date: '2 weeks ago',
+      image: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80',
+      place: 'City Lights Bar',
+      approved: true
+    }
   ]);
 
-  const [newReview, setNewReview] = useState({ name: '', rating: '', comment: '' });
+  const [newReview, setNewReview] = useState({ name: '', rating: '', comment: '', place: '' });
   const [searchTerm, setSearchTerm] = useState('');
   const [filterRating, setFilterRating] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewReview((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
-  const handleFilterChange = (e) => {
-    setFilterRating(e.target.value);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (newReview.name && newReview.rating && newReview.comment) {
-      // Add the new review with `approved: false`
-      setReviews((prev) => [
-        ...prev,
-        { id: prev.length + 1, ...newReview, approved: false }
-      ]);
-      setNewReview({ name: '', rating: '', comment: '' });
-      alert('Your review has been submitted and is awaiting approval.');
+    if (newReview.name && newReview.rating && newReview.comment && newReview.place) {
+      setIsSubmitting(true);
+      // Simulate API call
+      setTimeout(() => {
+        setReviews((prev) => [
+          ...prev,
+          {
+            id: prev.length + 1,
+            ...newReview,
+            date: 'Just now',
+            image: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80',
+            approved: false
+          }
+        ]);
+        setNewReview({ name: '', rating: '', comment: '', place: '' });
+        setIsSubmitting(false);
+        alert('Your review has been submitted and is awaiting approval.');
+      }, 1000);
     }
   };
 
   const filteredReviews = reviews
-    .filter((review) => review.approved) // Only show approved reviews
+    .filter((review) => review.approved)
     .filter((review) =>
       review.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      review.comment.toLowerCase().includes(searchTerm.toLowerCase())
+      review.comment.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      review.place.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .filter((review) => (filterRating ? review.rating === parseInt(filterRating) : true));
 
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
+
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6 mt-8">
-      <h2 className="text-2xl font-bold text-rose-600 mb-4">User Reviews</h2>
-
-      {/* Search and Filter */}
-      <div className="flex flex-col md:flex-row gap-4 mb-6">
-        <input
-          type="text"
-          placeholder="Search reviews..."
-          value={searchTerm}
-          onChange={handleSearchChange}
-          className="w-full md:w-1/2 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400"
-        />
-        <select
-          value={filterRating}
-          onChange={handleFilterChange}
-          className="w-full md:w-1/4 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400"
+    <div className="py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-16"
         >
-          <option value="">Filter by Rating</option>
-          <option value="5">5 Stars</option>
-          <option value="4">4 Stars</option>
-          <option value="3">3 Stars</option>
-          <option value="2">2 Stars</option>
-          <option value="1">1 Star</option>
-        </select>
-      </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            What Couples <span className="text-rose-600">Say</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Read authentic reviews from couples who have experienced our recommended date spots
+          </p>
+        </motion.div>
 
-      {/* Display Filtered Reviews */}
-      <div className="space-y-4">
-        {filteredReviews.length > 0 ? (
-          filteredReviews.map((review) => (
-            <div key={review.id} className="border-b pb-4">
-              <h3 className="text-lg font-semibold">{review.name}</h3>
-              <p className="text-sm text-gray-600">Rating: {review.rating} ⭐</p>
-              <p className="text-gray-700">{review.comment}</p>
+        {/* Search and Filter */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex flex-col md:flex-row gap-4 mb-12"
+        >
+          <div className="flex-1">
+            <input
+              type="text"
+              placeholder="Search reviews..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-rose-500"
+            />
+          </div>
+          <select
+            value={filterRating}
+            onChange={(e) => setFilterRating(e.target.value)}
+            className="px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-rose-500"
+          >
+            <option value="">All Ratings</option>
+            {[5, 4, 3, 2, 1].map((rating) => (
+              <option key={rating} value={rating}>
+                {rating} {rating === 1 ? 'Star' : 'Stars'}
+              </option>
+            ))}
+          </select>
+        </motion.div>
+
+        {/* Reviews Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <AnimatePresence>
+            {filteredReviews.map((review) => (
+              <motion.div
+                key={review.id}
+                variants={fadeInUp}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105"
+              >
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <img
+                      src={review.image}
+                      alt={review.name}
+                      className="w-12 h-12 rounded-full object-cover mr-4"
+                    />
+                    <div>
+                      <h3 className="font-semibold text-gray-900">{review.name}</h3>
+                      <p className="text-sm text-gray-500">{review.date}</p>
+                    </div>
+                  </div>
+                  <div className="mb-4">
+                    <div className="flex items-center mb-2">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <span key={i} className="text-yellow-400">⭐</span>
+                      ))}
+                    </div>
+                    <p className="text-rose-600 font-medium">{review.place}</p>
+                  </div>
+                  <p className="text-gray-600">{review.comment}</p>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+
+        {/* Add Review Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-white rounded-xl shadow-lg p-8"
+        >
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">Share Your Experience</h3>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={newReview.name}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-rose-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Place Name
+                </label>
+                <input
+                  type="text"
+                  name="place"
+                  value={newReview.place}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-rose-500"
+                />
+              </div>
             </div>
-          ))
-        ) : (
-          <p className="text-gray-600">No reviews found.</p>
-        )}
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Rating
+              </label>
+              <div className="flex gap-2">
+                {[1, 2, 3, 4, 5].map((rating) => (
+                  <button
+                    key={rating}
+                    type="button"
+                    onClick={() => setNewReview(prev => ({ ...prev, rating: rating }))}
+                    className={`p-2 rounded-full ${
+                      newReview.rating === rating
+                        ? 'bg-rose-500 text-white'
+                        : 'bg-gray-100 text-gray-400 hover:bg-gray-200'
+                    }`}
+                  >
+                    ⭐
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Your Review
+              </label>
+              <textarea
+                name="comment"
+                value={newReview.comment}
+                onChange={handleInputChange}
+                required
+                rows="4"
+                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-rose-500"
+              />
+            </div>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className={`w-full md:w-auto px-8 py-3 bg-rose-500 text-white font-semibold rounded-lg hover:bg-rose-600 transition-colors ${
+                isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+              }`}
+            >
+              {isSubmitting ? 'Submitting...' : 'Submit Review'}
+            </button>
+          </form>
+        </motion.div>
       </div>
-
-      {/* Add New Review */}
-      <form onSubmit={handleSubmit} className="mt-6 p-10">
-        <h3 className="text-lg font-bold mb-2">Add Your Review</h3>
-        <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2">Name</label>
-          <input
-            type="text"
-            name="name"
-            value={newReview.name}
-            onChange={handleInputChange}
-            required
-            className="w-1/2 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2">Rating (1-5)</label>
-          <input
-            type="number"
-            name="rating"
-            value={newReview.rating}
-            onChange={handleInputChange}
-            min="1"
-            max="5"
-            required
-            className="w-1/2 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2">Comment</label>
-          <textarea
-            name="comment"
-            value={newReview.comment}
-            onChange={handleInputChange}
-            required
-            rows="4"
-            className="w-1/2 px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-rose-400"
-          />
-        </div>
-        <button
-          type="submit"
-          className="w-1/3 bg-rose-500 text-white font-semibold py-2 justify-center rounded hover:bg-rose-600 transition duration-200"
-        >
-          Submit Review
-        </button>
-      </form>
     </div>
   );
 }
