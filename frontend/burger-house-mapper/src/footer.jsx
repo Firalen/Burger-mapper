@@ -20,7 +20,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a href="/about" className="hover:underline">
-                  About 
+                  About Us
                 </a>
               </li>
               <li>
