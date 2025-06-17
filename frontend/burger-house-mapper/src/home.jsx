@@ -142,19 +142,7 @@ function Home() {
       {/* Events Section */}
       <div className="bg-white py-20">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Upcoming <span className="text-rose-500">Events</span>
-            </h2>
-            <p className="text-xl text-gray-600">
-              Don't miss out on these special occasions
-            </p>
-          </motion.div>
+         
           <EventsSection />
         </div>
       </div>
@@ -162,19 +150,7 @@ function Home() {
       {/* Reviews Section */}
       <div className="bg-gray-50 py-20">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              What Couples <span className="text-rose-500">Say</span>
-            </h2>
-            <p className="text-xl text-gray-600">
-              Read authentic reviews from our community
-            </p>
-          </motion.div>
+          
           <Review />
         </div>
       </div>
